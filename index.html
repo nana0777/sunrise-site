@@ -3,436 +3,381 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI活用研修 2026</title>
+  <title>株式会社サンライズ商事</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #0a0a0f;
-      --surface: #12121a;
-      --accent: #00e5c8;
-      --accent2: #ff6b6b;
-      --text: #e8e8f0;
-      --muted: #6b6b8a;
-      --border: rgba(0,229,200,0.15);
+      --ink:    #1a1a1a;
+      --ink2:   #4a4a4a;
+      --ink3:   #888;
+      --cream:  #f8f5f0;
+      --warm:   #f0ebe2;
+      --gold:   #b8934a;
+      --gold2:  #d4aa6a;
+      --border: #ddd8cf;
+      --white:  #ffffff;
     }
-
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      background: var(--bg);
-      color: var(--text);
+      background: var(--cream);
+      color: var(--ink);
       font-family: 'Noto Sans JP', sans-serif;
       font-weight: 300;
       line-height: 1.8;
-      overflow-x: hidden;
     }
 
-    /* ── グリッドノイズ背景 ── */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(0,229,200,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,229,200,0.03) 1px, transparent 1px);
-      background-size: 40px 40px;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    /* ── ヘッダー ── */
-    header {
-      position: relative;
-      z-index: 1;
-      padding: 80px 48px 60px;
+    /* ── ナビ ── */
+    nav {
+      background: var(--white);
       border-bottom: 1px solid var(--border);
       display: flex;
       justify-content: space-between;
-      align-items: flex-end;
-      flex-wrap: wrap;
-      gap: 24px;
-      animation: fadeDown 0.8s ease both;
+      align-items: center;
+      padding: 0 48px;
+      height: 64px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
-
-    .logo {
-      font-family: 'Space Mono', monospace;
-      font-size: 13px;
-      color: var(--accent);
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
+    .nav-logo {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: 0.05em;
     }
-
-    .year-badge {
-      font-family: 'Space Mono', monospace;
-      font-size: 12px;
-      color: var(--muted);
-      border: 1px solid var(--border);
-      padding: 6px 14px;
-      border-radius: 2px;
-    }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { text-decoration: none; font-size: 13px; color: var(--ink2); letter-spacing: 0.08em; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--gold); }
 
     /* ── ヒーロー ── */
     .hero {
-      position: relative;
-      z-index: 1;
-      padding: 100px 48px 80px;
-      animation: fadeUp 0.9s 0.1s ease both;
+      background: var(--white);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 480px;
+      border-bottom: 1px solid var(--border);
     }
-
-    .hero-tag {
-      font-family: 'Space Mono', monospace;
+    .hero-text {
+      padding: 72px 48px 72px 64px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .hero-en {
       font-size: 11px;
-      color: var(--accent);
-      letter-spacing: 0.3em;
+      letter-spacing: 0.25em;
+      color: var(--gold);
       text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(28px, 3vw, 42px);
+      font-weight: 700;
+      line-height: 1.5;
+      letter-spacing: 0.03em;
       margin-bottom: 24px;
     }
-
-    h1 {
-      font-size: clamp(36px, 6vw, 72px);
-      font-weight: 700;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      margin-bottom: 32px;
+    .hero-sub {
+      font-size: 14px;
+      color: var(--ink2);
+      max-width: 400px;
+      margin-bottom: 36px;
+      line-height: 2;
     }
-
-    h1 em {
-      font-style: normal;
-      color: var(--accent);
-    }
-
-    .hero-desc {
-      font-size: 16px;
-      color: var(--muted);
-      max-width: 560px;
-      margin-bottom: 48px;
-      line-height: 1.9;
-    }
-
-    .cta-group {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
     .btn {
-      font-family: 'Space Mono', monospace;
+      display: inline-block;
+      padding: 12px 32px;
       font-size: 13px;
       letter-spacing: 0.1em;
       text-decoration: none;
-      padding: 14px 28px;
       border-radius: 2px;
       transition: all 0.2s;
-      display: inline-block;
       cursor: pointer;
-      border: none;
+    }
+    .btn-gold {
+      background: var(--gold);
+      color: var(--white);
+    }
+    .btn-gold:hover { background: var(--gold2); }
+
+    .hero-visual {
+      background: var(--warm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 96px;
     }
 
-    .btn-primary {
-      background: var(--accent);
-      color: #0a0a0f;
-      font-weight: 700;
-    }
-    .btn-primary:hover { background: #00ffdf; transform: translateY(-1px); }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--text);
-      border: 1px solid var(--border);
-    }
-    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
-
-    /* ── スタッツ帯 ── */
-    .stats {
-      position: relative;
-      z-index: 1;
+    /* ── 数字帯 ── */
+    .numbers {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      animation: fadeUp 0.9s 0.2s ease both;
+      grid-template-columns: repeat(3, 1fr);
+      background: var(--gold);
     }
-
-    .stat-item {
-      padding: 36px 48px;
-      border-right: 1px solid var(--border);
+    .number-item {
+      padding: 36px 40px;
+      border-right: 1px solid rgba(255,255,255,0.2);
+      text-align: center;
     }
-    .stat-item:last-child { border-right: none; }
-
-    .stat-num {
-      font-family: 'Space Mono', monospace;
+    .number-item:last-child { border-right: none; }
+    .number-val {
+      font-family: 'Noto Serif JP', serif;
       font-size: 40px;
       font-weight: 700;
-      color: var(--accent);
+      color: var(--white);
       line-height: 1;
       margin-bottom: 8px;
     }
+    .number-label { font-size: 12px; color: rgba(255,255,255,0.8); letter-spacing: 0.1em; }
 
-    .stat-label {
-      font-size: 12px;
-      color: var(--muted);
-      letter-spacing: 0.1em;
+    /* ── 事業内容 ── */
+    .section {
+      padding: 80px 64px;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
     }
-
-    /* ── カリキュラム ── */
-    .curriculum {
-      position: relative;
-      z-index: 1;
-      padding: 80px 48px;
-      animation: fadeUp 0.9s 0.3s ease both;
-    }
-
-    .section-label {
-      font-family: 'Space Mono', monospace;
-      font-size: 11px;
-      color: var(--muted);
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      margin-bottom: 40px;
+    .section-alt { background: var(--cream); }
+    .section-header {
       display: flex;
+      align-items: flex-end;
+      gap: 20px;
+      margin-bottom: 48px;
+    }
+    .section-en { font-size: 10px; letter-spacing: 0.3em; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; }
+    h2 { font-family: 'Noto Serif JP', serif; font-size: 26px; font-weight: 700; letter-spacing: 0.03em; }
+    .section-line { flex: 1; height: 1px; background: var(--border); max-width: 200px; margin-bottom: 6px; }
+
+    .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
+    .service-card {
+      border: 1px solid var(--border);
+      padding: 32px 28px;
+      background: var(--white);
+      transition: box-shadow 0.2s;
+    }
+    .service-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+    .service-icon { font-size: 28px; margin-bottom: 16px; }
+    .service-title { font-family: 'Noto Serif JP', serif; font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+    .service-desc { font-size: 13px; color: var(--ink2); line-height: 1.9; }
+
+    /* ── 会社概要 ── */
+    .company-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    .info-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    .info-table tr { border-bottom: 1px solid var(--border); }
+    .info-table tr:first-child { border-top: 1px solid var(--border); }
+    .info-table th { padding: 14px 0; font-weight: 500; color: var(--ink2); width: 120px; vertical-align: top; }
+    .info-table td { padding: 14px 0 14px 16px; color: var(--ink); line-height: 1.7; }
+    .map-placeholder {
+      background: var(--warm);
+      border: 1px solid var(--border);
+      height: 240px;
+      display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 12px;
-    }
-    .section-label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-      max-width: 200px;
-    }
-
-    .curriculum-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-    }
-
-    .curriculum-card {
-      background: var(--surface);
-      padding: 36px 32px;
-      transition: background 0.2s;
-    }
-    .curriculum-card:hover { background: #1a1a26; }
-
-    .card-day {
-      font-family: 'Space Mono', monospace;
-      font-size: 11px;
-      color: var(--accent);
-      letter-spacing: 0.2em;
-      margin-bottom: 16px;
-    }
-
-    .card-title {
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 12px;
-      letter-spacing: -0.01em;
-    }
-
-    .card-desc {
+      justify-content: center;
+      gap: 8px;
+      color: var(--ink3);
       font-size: 13px;
-      color: var(--muted);
-      line-height: 1.8;
+      letter-spacing: 0.05em;
     }
 
-    .card-tags {
-      margin-top: 20px;
+    /* ── お知らせ ── */
+    .news-list { list-style: none; }
+    .news-item {
       display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
+      align-items: baseline;
+      gap: 20px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
     }
-
-    .tag {
-      font-family: 'Space Mono', monospace;
+    .news-item:first-child { border-top: 1px solid var(--border); }
+    .news-date { color: var(--ink3); font-size: 12px; white-space: nowrap; letter-spacing: 0.05em; }
+    .news-tag {
       font-size: 10px;
-      padding: 3px 8px;
-      border: 1px solid var(--border);
-      color: var(--muted);
-      border-radius: 2px;
+      padding: 2px 8px;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      white-space: nowrap;
+      letter-spacing: 0.05em;
     }
-
-    /* ── GitHub セクション（研修ポイント） ── */
-    .highlight-section {
-      position: relative;
-      z-index: 1;
-      margin: 0 48px;
-      padding: 48px;
-      border: 1px solid var(--accent);
-      background: rgba(0,229,200,0.03);
-      animation: fadeUp 0.9s 0.4s ease both;
-    }
-
-    .highlight-title {
-      font-family: 'Space Mono', monospace;
-      font-size: 13px;
-      color: var(--accent);
-      letter-spacing: 0.2em;
-      margin-bottom: 20px;
-    }
-
-    .highlight-body {
-      font-size: 15px;
-      color: var(--text);
-      max-width: 640px;
-    }
-
-    .code-block {
-      margin-top: 24px;
-      background: #0a0a0f;
-      border: 1px solid var(--border);
-      padding: 20px 24px;
-      font-family: 'Space Mono', monospace;
-      font-size: 13px;
-      line-height: 2;
-      color: var(--accent);
-      border-radius: 2px;
-      overflow-x: auto;
-    }
-
-    .code-block .comment { color: var(--muted); }
+    .news-title { color: var(--ink); }
 
     /* ── フッター ── */
     footer {
-      position: relative;
-      z-index: 1;
-      margin-top: 80px;
-      padding: 40px 48px;
-      border-top: 1px solid var(--border);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
+      background: var(--ink);
+      color: rgba(255,255,255,0.5);
+      padding: 48px 64px 32px;
     }
+    .footer-logo {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 16px;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 8px;
+    }
+    .footer-logo span { color: var(--gold2); }
+    .footer-addr { font-size: 12px; line-height: 2; margin-bottom: 32px; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 11px; }
 
-    .footer-copy {
-      font-family: 'Space Mono', monospace;
-      font-size: 11px;
-      color: var(--muted);
-    }
-
-    .footer-note {
-      font-size: 12px;
-      color: var(--muted);
-      padding: 6px 12px;
-      border: 1px solid var(--border);
-      border-radius: 2px;
-    }
-
-    /* ── アニメーション ── */
-    @keyframes fadeDown {
-      from { opacity: 0; transform: translateY(-16px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    @media (max-width: 640px) {
-      header, .hero, .curriculum, .highlight-section, footer {
-        padding-left: 24px;
-        padding-right: 24px;
-      }
-      .highlight-section { margin: 0 24px; }
-      .stat-item { padding: 28px 24px; border-right: none; border-bottom: 1px solid var(--border); }
+    @media (max-width: 720px) {
+      nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-visual { min-height: 160px; }
+      .hero-text { padding: 48px 24px; }
+      .numbers { grid-template-columns: 1fr; }
+      .number-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.2); }
+      .section { padding: 48px 24px; }
+      .company-grid { grid-template-columns: 1fr; }
+      footer { padding: 40px 24px 24px; }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <div class="logo">⬡ AI TRAINING PROGRAM</div>
-    <div class="year-badge">2026 EDITION</div>
-  </header>
+  <!-- ナビ -->
+  <nav>
+    <div class="nav-logo">株式会社<span>サンライズ</span>商事</div>
+    <ul class="nav-links">
+      <li><a href="#">事業内容</a></li>
+      <li><a href="#">会社概要</a></li>
+      <li><a href="#">お知らせ</a></li>
+      <li><a href="#">お問い合わせ</a></li>
+    </ul>
+  </nav>
 
+  <!-- ヒーロー -->
   <section class="hero">
-    <p class="hero-tag">// Dentsu East Japan — IT企画部 主催</p>
-    <h1>AIを<em>使える</em>人材へ。<br>現場から変える、<em>実践</em>研修。</h1>
-    <p class="hero-desc">
-      プロンプトエンジニアリングから、Git/GitHubによる再現性のあるAI成果物管理まで。<br>
-      「作って終わり」ではなく「チームで育てる」AIリテラシーを身につけます。
-    </p>
-    <div class="cta-group">
-      <a class="btn btn-primary" href="#">申し込む</a>
-      <a class="btn btn-outline" href="#">カリキュラム詳細</a>
+    <div class="hero-text">
+      <p class="hero-en">Sunrise Trading Co., Ltd.</p>
+      <h1>信頼とともに、<br>新しい価値を届ける。</h1>
+      <p class="hero-sub">
+        サンライズ商事は1985年の創業以来、国内外のパートナーとともに、お客様のビジネスに寄り添い続けてきました。
+      </p>
+      <a class="btn btn-gold" href="#">会社概要を見る</a>
     </div>
+    <div class="hero-visual">🌅</div>
   </section>
 
-  <div class="stats">
-    <div class="stat-item">
-      <div class="stat-num">4</div>
-      <div class="stat-label">DAY PROGRAM</div>
+  <!-- 数字 -->
+  <div class="numbers">
+    <div class="number-item">
+      <div class="number-val">39</div>
+      <div class="number-label">創業年数</div>
     </div>
-    <div class="stat-item">
-      <div class="stat-num">12</div>
-      <div class="stat-label">HANDS-ON LABS</div>
+    <div class="number-item">
+      <div class="number-val">1,200+</div>
+      <div class="number-label">取引先</div>
     </div>
-    <div class="stat-item">
-      <div class="stat-num">0</div>
-      <div class="stat-label">PRIOR CODING EXP. NEEDED</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">100%</div>
-      <div class="stat-label">TOOL-AGNOSTIC</div>
+    <div class="number-item">
+      <div class="number-val">15</div>
+      <div class="number-label">国内拠点</div>
     </div>
   </div>
 
-  <section class="curriculum">
-    <p class="section-label">CURRICULUM</p>
-    <div class="curriculum-grid">
-      <div class="curriculum-card">
-        <p class="card-day">DAY 01</p>
-        <h3 class="card-title">AIと対話する技術</h3>
-        <p class="card-desc">プロンプト設計の基礎。ChatGPT・Claude・Copilotの使い分け。業務シナリオ演習。</p>
-        <div class="card-tags"><span class="tag">Prompt</span><span class="tag">Claude</span><span class="tag">Copilot</span></div>
+  <!-- 事業内容 -->
+  <section class="section section-alt">
+    <div class="section-header">
+      <div>
+        <p class="section-en">Business</p>
+        <h2>事業内容</h2>
       </div>
-      <div class="curriculum-card">
-        <p class="card-day">DAY 02</p>
-        <h3 class="card-title">AIでサイトを作る</h3>
-        <p class="card-desc">HTMLの読み方・直し方。「Reactは不要」の判断軸。AIが生成したコードを使いこなす。</p>
-        <div class="card-tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">AI生成コード</span></div>
+      <div class="section-line"></div>
+    </div>
+    <div class="service-grid">
+      <div class="service-card">
+        <div class="service-icon">🏭</div>
+        <h3 class="service-title">製造・流通支援</h3>
+        <p class="service-desc">国内外メーカーとの強固なネットワークを活かし、製品の調達から物流まで一貫してサポートします。</p>
       </div>
-      <div class="curriculum-card">
-        <p class="card-day">DAY 03</p>
-        <h3 class="card-title">Git/GitHubで管理する</h3>
-        <p class="card-desc">バージョン管理の概念。Git Bashの基本コマンド。GitHub Pages で公開まで。</p>
-        <div class="card-tags"><span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">CLI</span></div>
+      <div class="service-card">
+        <div class="service-icon">🌐</div>
+        <h3 class="service-title">輸出入・貿易</h3>
+        <p class="service-desc">アジアを中心とした海外拠点と連携し、スムーズな貿易実務と通関サポートを提供しています。</p>
       </div>
-      <div class="curriculum-card">
-        <p class="card-day">DAY 04</p>
-        <h3 class="card-title">チームで育てるAI活用</h3>
-        <p class="card-desc">ガバナンス・セキュリティの基礎。成果物を組織に展開する方法。AI推進者としての役割。</p>
-        <div class="card-tags"><span class="tag">ガバナンス</span><span class="tag">展開</span><span class="tag">推進</span></div>
+      <div class="service-card">
+        <div class="service-icon">💡</div>
+        <h3 class="service-title">コンサルティング</h3>
+        <p class="service-desc">市場調査からビジネスマッチング、販路拡大戦略まで、お客様の課題に応じた提案を行います。</p>
       </div>
     </div>
   </section>
 
-  <div class="highlight-section">
-    <p class="highlight-title">// TODAY'S DEMO POINT</p>
-    <p class="highlight-body">
-      このページ自体がAIで生成した単一HTMLファイルです。<br>
-      Reactなし・ビルドツールなし。これをGitで管理→GitHubで公開するのが本日のゴール。
-    </p>
-    <div class="code-block">
-      <span class="comment"># ① ローカルでGitを初期化</span><br>
-      git init<br>
-      git add index.html<br>
-      git commit -m "first commit"<br>
-      <br>
-      <span class="comment"># ② GitHubに接続してpush</span><br>
-      git remote add origin https://github.com/YOUR_NAME/REPO_NAME.git<br>
-      git branch -M main<br>
-      git push -u origin main
+  <!-- お知らせ -->
+  <section class="section">
+    <div class="section-header">
+      <div>
+        <p class="section-en">News</p>
+        <h2>お知らせ</h2>
+      </div>
+      <div class="section-line"></div>
     </div>
-  </div>
+    <ul class="news-list">
+      <li class="news-item">
+        <span class="news-date">2026.03.15</span>
+        <span class="news-tag">プレスリリース</span>
+        <span class="news-title">東南アジア向け新物流拠点の開設について</span>
+      </li>
+      <li class="news-item">
+        <span class="news-date">2026.02.28</span>
+        <span class="news-tag">お知らせ</span>
+        <span class="news-title">2025年度決算説明会の開催日程のご案内</span>
+      </li>
+      <li class="news-item">
+        <span class="news-date">2026.01.10</span>
+        <span class="news-tag">採用情報</span>
+        <span class="news-title">2027年度新卒採用エントリー受付を開始しました</span>
+      </li>
+      <li class="news-item">
+        <span class="news-date">2025.12.20</span>
+        <span class="news-tag">お知らせ</span>
+        <span class="news-title">年末年始休業期間のご案内（12/29〜1/5）</span>
+      </li>
+    </ul>
+  </section>
 
+  <!-- 会社概要 -->
+  <section class="section section-alt">
+    <div class="section-header">
+      <div>
+        <p class="section-en">Company</p>
+        <h2>会社概要</h2>
+      </div>
+      <div class="section-line"></div>
+    </div>
+    <div class="company-grid">
+      <table class="info-table">
+        <tr><th>会社名</th><td>株式会社サンライズ商事</td></tr>
+        <tr><th>設立</th><td>1985年（昭和60年）4月</td></tr>
+        <tr><th>代表取締役</th><td>山田 太郎</td></tr>
+        <tr><th>所在地</th><td>〒100-0001<br>東京都千代田区○○1-2-3<br>サンライズビル8F</td></tr>
+        <tr><th>TEL</th><td>03-XXXX-XXXX</td></tr>
+        <tr><th>資本金</th><td>5,000万円</td></tr>
+        <tr><th>従業員数</th><td>320名（グループ計）</td></tr>
+      </table>
+      <div class="map-placeholder">
+        <div style="font-size:32px;">📍</div>
+        <div>地図エリア</div>
+        <div style="font-size:11px;">東京都千代田区○○1-2-3</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- フッター -->
   <footer>
-    <div class="footer-copy">© 2026 IT企画部 / AI推進事務局</div>
-    <div class="footer-note">このファイルはAIが生成しました — index.html 1ファイル構成</div>
+    <div class="footer-logo">株式会社<span>サンライズ</span>商事</div>
+    <div class="footer-addr">
+      〒100-0001 東京都千代田区○○1-2-3 サンライズビル8F<br>
+      TEL: 03-XXXX-XXXX　／　FAX: 03-XXXX-XXXX
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Sunrise Trading Co., Ltd. All rights reserved.
+      &ensp;|&ensp; このサイトはデモ用です
+    </div>
   </footer>
 
 </body>
