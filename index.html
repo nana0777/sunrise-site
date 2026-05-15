@@ -5,639 +5,380 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>株式会社サンライズ商事</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;700&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --ink:    #111111;
-      --ink2:   #555555;
-      --ink3:   #999999;
-      --bg:     #faf9f7;
-      --warm:   #f3ede3;
-      --gold:   #a07840;
-      --gold2:  #c49a5a;
-      --red:    #b83232;
+      --ink:    #1a1a1a;
+      --ink2:   #4a4a4a;
+      --ink3:   #888;
+      --cream:  #f8f5f0;
+      --warm:   #f0ebe2;
+      --gold:   #b8934a;
+      --gold2:  #d4aa6a;
+      --border: #ddd8cf;
       --white:  #ffffff;
-      --border: #e0d8cc;
     }
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      background: var(--bg);
+      background: var(--cream);
       color: var(--ink);
       font-family: 'Noto Sans JP', sans-serif;
       font-weight: 300;
       line-height: 1.8;
-      overflow-x: hidden;
     }
 
     /* ── ナビ ── */
     nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      background: rgba(250,249,247,0.95);
-      backdrop-filter: blur(8px);
+      background: var(--white);
       border-bottom: 1px solid var(--border);
-      height: 60px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       padding: 0 48px;
+      height: 64px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
     .nav-logo {
-      font-family: 'Shippori Mincho', serif;
-      font-size: 15px;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 18px;
       font-weight: 700;
-      letter-spacing: 0.1em;
       color: var(--ink);
-      text-decoration: none;
+      letter-spacing: 0.05em;
     }
-    .nav-logo em { color: var(--gold); font-style: normal; }
-    .nav-links { display: flex; gap: 36px; list-style: none; }
-    .nav-links a {
-      font-size: 12px;
-      letter-spacing: 0.12em;
-      color: var(--ink2);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { text-decoration: none; font-size: 13px; color: var(--ink2); letter-spacing: 0.08em; transition: color 0.2s; }
     .nav-links a:hover { color: var(--gold); }
-    .nav-contact {
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      padding: 7px 20px;
-      border: 1px solid var(--gold);
-      color: var(--gold);
-      text-decoration: none;
-      transition: all 0.2s;
-    }
-    .nav-contact:hover { background: var(--gold); color: var(--white); }
 
     /* ── ヒーロー ── */
     .hero {
-      padding-top: 60px;
-      min-height: 100vh;
+      background: var(--white);
       display: grid;
       grid-template-columns: 1fr 1fr;
-      position: relative;
-      overflow: hidden;
+      min-height: 480px;
+      border-bottom: 1px solid var(--border);
     }
-    .hero-left {
-      background: var(--white);
+    .hero-text {
+      padding: 72px 48px 72px 64px;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 80px 64px 80px 72px;
-      position: relative;
     }
-    .hero-left::after {
-      content: '';
-      position: absolute;
-      right: -1px; top: 0; bottom: 0;
-      width: 1px;
-      background: var(--border);
-    }
-    .hero-eyebrow {
-      font-size: 10px;
-      letter-spacing: 0.4em;
+    .hero-en {
+      font-size: 11px;
+      letter-spacing: 0.25em;
       color: var(--gold);
       text-transform: uppercase;
-      margin-bottom: 28px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .hero-eyebrow::before {
-      content: '';
-      width: 24px;
-      height: 1px;
-      background: var(--gold);
+      margin-bottom: 20px;
     }
     h1 {
-      font-family: 'Shippori Mincho', serif;
-      font-size: clamp(32px, 3.5vw, 52px);
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(28px, 3vw, 42px);
       font-weight: 700;
-      line-height: 1.6;
-      letter-spacing: 0.05em;
-      margin-bottom: 32px;
-      color: var(--ink);
+      line-height: 1.5;
+      letter-spacing: 0.03em;
+      margin-bottom: 24px;
     }
-    h1 .accent { color: var(--gold); }
-    .hero-body {
+    .hero-sub {
       font-size: 14px;
       color: var(--ink2);
-      max-width: 380px;
-      line-height: 2.1;
-      margin-bottom: 48px;
+      max-width: 400px;
+      margin-bottom: 36px;
+      line-height: 2;
     }
-    .hero-btns { display: flex; gap: 16px; }
     .btn {
       display: inline-block;
-      font-size: 12px;
-      letter-spacing: 0.12em;
+      padding: 12px 32px;
+      font-size: 13px;
+      letter-spacing: 0.1em;
       text-decoration: none;
-      padding: 13px 32px;
+      border-radius: 2px;
       transition: all 0.2s;
       cursor: pointer;
     }
-    .btn-primary { background: var(--ink); color: var(--white); }
-    .btn-primary:hover { background: var(--gold); }
-    .btn-ghost { border: 1px solid var(--border); color: var(--ink2); }
-    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+    .btn-gold {
+      background: var(--gold);
+      color: var(--white);
+    }
+    .btn-gold:hover { background: var(--gold2); }
 
-    .hero-right {
+    .hero-visual {
       background: var(--warm);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 60px 48px;
-      position: relative;
-    }
-    .hero-year {
-      position: absolute;
-      top: 48px; right: 48px;
-      font-family: 'Shippori Mincho', serif;
-      font-size: 120px;
-      font-weight: 700;
-      color: rgba(160,120,64,0.08);
-      line-height: 1;
-      letter-spacing: -0.05em;
-      user-select: none;
-    }
-    .hero-stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-    }
-    .hero-stat {
-      background: var(--warm);
-      padding: 28px 24px;
-    }
-    .stat-num {
-      font-family: 'Shippori Mincho', serif;
-      font-size: 36px;
-      font-weight: 700;
-      color: var(--gold);
-      line-height: 1;
-      margin-bottom: 6px;
-    }
-    .stat-label { font-size: 11px; color: var(--ink3); letter-spacing: 0.1em; }
-
-    /* ── セクション共通 ── */
-    section { padding: 100px 72px; }
-    .section-alt { background: var(--white); }
-
-    .sec-header { margin-bottom: 56px; }
-    .sec-en {
-      font-size: 10px;
-      letter-spacing: 0.4em;
-      color: var(--gold);
-      text-transform: uppercase;
-      margin-bottom: 12px;
       display: flex;
       align-items: center;
-      gap: 12px;
-    }
-    .sec-en::before { content: ''; width: 24px; height: 1px; background: var(--gold); }
-    h2 {
-      font-family: 'Shippori Mincho', serif;
-      font-size: 30px;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      line-height: 1.4;
+      justify-content: center;
+      font-size: 96px;
     }
 
-    /* ── ごあいさつ ── */
-    .greeting-grid {
+    /* ── 数字帯 ── */
+    .numbers {
       display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 64px;
-      align-items: start;
+      grid-template-columns: repeat(3, 1fr);
+      background: var(--gold);
     }
-    .greeting-left {
-      position: sticky;
-      top: 80px;
+    .number-item {
+      padding: 36px 40px;
+      border-right: 1px solid rgba(255,255,255,0.2);
+      text-align: center;
     }
-    .greeting-portrait {
-      width: 100%;
-      aspect-ratio: 3/4;
+    .number-item:last-child { border-right: none; }
+    .number-val {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .number-label { font-size: 12px; color: rgba(255,255,255,0.8); letter-spacing: 0.1em; }
+
+    /* ── 事業内容 ── */
+    .section {
+      padding: 80px 64px;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+    .section-alt { background: var(--cream); }
+    .section-header {
+      display: flex;
+      align-items: flex-end;
+      gap: 20px;
+      margin-bottom: 48px;
+    }
+    .section-en { font-size: 10px; letter-spacing: 0.3em; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; }
+    h2 { font-family: 'Noto Serif JP', serif; font-size: 26px; font-weight: 700; letter-spacing: 0.03em; }
+    .section-line { flex: 1; height: 1px; background: var(--border); max-width: 200px; margin-bottom: 6px; }
+
+    .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
+    .service-card {
+      border: 1px solid var(--border);
+      padding: 32px 28px;
+      background: var(--white);
+      transition: box-shadow 0.2s;
+    }
+    .service-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+    .service-icon { font-size: 28px; margin-bottom: 16px; }
+    .service-title { font-family: 'Noto Serif JP', serif; font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+    .service-desc { font-size: 13px; color: var(--ink2); line-height: 1.9; }
+
+    /* ── 会社概要 ── */
+    .company-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    .info-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    .info-table tr { border-bottom: 1px solid var(--border); }
+    .info-table tr:first-child { border-top: 1px solid var(--border); }
+    .info-table th { padding: 14px 0; font-weight: 500; color: var(--ink2); width: 120px; vertical-align: top; }
+    .info-table td { padding: 14px 0 14px 16px; color: var(--ink); line-height: 1.7; }
+    .map-placeholder {
       background: var(--warm);
+      border: 1px solid var(--border);
+      height: 240px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       gap: 8px;
-      font-size: 48px;
-      border: 1px solid var(--border);
-    }
-    .greeting-name {
-      margin-top: 20px;
-      font-family: 'Shippori Mincho', serif;
-      font-size: 18px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-    }
-    .greeting-title { font-size: 11px; color: var(--ink3); letter-spacing: 0.1em; margin-top: 4px; }
-    .greeting-body {
-      font-size: 15px;
-      color: var(--ink2);
-      line-height: 2.4;
-    }
-    .greeting-body p + p { margin-top: 24px; }
-    .greeting-sig {
-      margin-top: 40px;
-      font-family: 'Shippori Mincho', serif;
-      font-size: 20px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      color: var(--ink);
-    }
-
-    /* ── 事業内容 ── */
-    .biz-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-    }
-    .biz-card {
-      background: var(--bg);
-      padding: 40px 32px;
-      position: relative;
-      overflow: hidden;
-      transition: background 0.2s;
-    }
-    .biz-card:hover { background: var(--white); }
-    .biz-num {
-      font-family: 'Shippori Mincho', serif;
-      font-size: 48px;
-      font-weight: 700;
-      color: rgba(160,120,64,0.12);
-      line-height: 1;
-      margin-bottom: 20px;
-      letter-spacing: -0.02em;
-    }
-    .biz-icon { font-size: 28px; margin-bottom: 16px; }
-    .biz-title {
-      font-family: 'Shippori Mincho', serif;
-      font-size: 18px;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      margin-bottom: 12px;
-    }
-    .biz-desc { font-size: 13px; color: var(--ink2); line-height: 2; }
-
-    /* ── お知らせ ── */
-    .news-list { list-style: none; border-top: 1px solid var(--border); }
-    .news-item {
-      display: grid;
-      grid-template-columns: 120px 100px 1fr;
-      align-items: baseline;
-      gap: 24px;
-      padding: 20px 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 14px;
-      transition: background 0.1s;
-    }
-    .news-date { font-size: 12px; color: var(--ink3); letter-spacing: 0.05em; font-family: 'Shippori Mincho', serif; }
-    .news-cat {
-      font-size: 10px;
-      padding: 3px 10px;
-      border: 1px solid var(--gold);
-      color: var(--gold);
-      letter-spacing: 0.08em;
-      text-align: center;
-    }
-    .news-cat.red { border-color: var(--red); color: var(--red); }
-    .news-title { color: var(--ink); }
-
-    /* ── 会社概要 ── */
-    .company-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 64px; align-items: start; }
-    .info-table { width: 100%; border-collapse: collapse; }
-    .info-table tr { border-bottom: 1px solid var(--border); }
-    .info-table tr:first-child { border-top: 1px solid var(--border); }
-    .info-table th {
-      padding: 16px 0;
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--ink3);
-      letter-spacing: 0.08em;
-      width: 140px;
-      vertical-align: top;
-    }
-    .info-table td { padding: 16px 0 16px 24px; font-size: 14px; color: var(--ink); line-height: 1.9; }
-    .map-box {
-      background: var(--warm);
-      border: 1px solid var(--border);
-      aspect-ratio: 4/3;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
       color: var(--ink3);
       font-size: 13px;
       letter-spacing: 0.05em;
     }
 
-    /* ── お問い合わせ ── */
-    .contact-inner {
-      max-width: 640px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    .contact-inner h2 { margin-bottom: 16px; }
-    .contact-inner p { font-size: 14px; color: var(--ink2); margin-bottom: 40px; line-height: 2; }
-    .contact-tel {
-      font-family: 'Shippori Mincho', serif;
-      font-size: 36px;
-      font-weight: 700;
-      color: var(--ink);
-      letter-spacing: 0.1em;
-      margin-bottom: 8px;
-    }
-    .contact-hours { font-size: 12px; color: var(--ink3); margin-bottom: 40px; }
-    .contact-divider {
+    /* ── お知らせ ── */
+    .news-list { list-style: none; }
+    .news-item {
       display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 40px;
-      color: var(--ink3);
-      font-size: 11px;
-      letter-spacing: 0.2em;
+      align-items: baseline;
+      gap: 20px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
     }
-    .contact-divider::before, .contact-divider::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
+    .news-item:first-child { border-top: 1px solid var(--border); }
+    .news-date { color: var(--ink3); font-size: 12px; white-space: nowrap; letter-spacing: 0.05em; }
+    .news-tag {
+      font-size: 10px;
+      padding: 2px 8px;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      white-space: nowrap;
+      letter-spacing: 0.05em;
     }
+    .news-title { color: var(--ink); }
 
     /* ── フッター ── */
     footer {
       background: var(--ink);
-      color: rgba(255,255,255,0.4);
-      padding: 56px 72px 32px;
-    }
-    .footer-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 48px;
-      flex-wrap: wrap;
-      gap: 32px;
+      color: rgba(255,255,255,0.5);
+      padding: 48px 64px 32px;
     }
     .footer-logo {
-      font-family: 'Shippori Mincho', serif;
+      font-family: 'Noto Serif JP', serif;
       font-size: 16px;
-      color: rgba(255,255,255,0.85);
-      letter-spacing: 0.1em;
-      margin-bottom: 12px;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 8px;
     }
-    .footer-logo em { color: var(--gold2); font-style: normal; }
-    .footer-addr { font-size: 12px; line-height: 2.2; }
-    .footer-nav { display: flex; gap: 32px; flex-wrap: wrap; }
-    .footer-nav a { font-size: 12px; color: rgba(255,255,255,0.4); text-decoration: none; letter-spacing: 0.08em; transition: color 0.2s; }
-    .footer-nav a:hover { color: var(--gold2); }
-    .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding-top: 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 11px;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .footer-note {
-      font-size: 10px;
-      padding: 3px 10px;
-      border: 1px solid rgba(255,255,255,0.1);
-      color: rgba(255,255,255,0.25);
-      letter-spacing: 0.05em;
-    }
+    .footer-logo span { color: var(--gold2); }
+    .footer-addr { font-size: 12px; line-height: 2; margin-bottom: 32px; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 11px; }
 
-    @media (max-width: 768px) {
-      nav { padding: 0 20px; }
-      .nav-links, .nav-contact { display: none; }
-      .hero { grid-template-columns: 1fr; min-height: auto; }
-      .hero-left { padding: 48px 24px; }
-      .hero-right { padding: 32px 24px; min-height: 240px; }
-      .hero-year { font-size: 60px; }
-      section { padding: 64px 24px; }
-      .greeting-grid, .company-grid { grid-template-columns: 1fr; }
-      .biz-grid { grid-template-columns: 1fr; }
-      .news-item { grid-template-columns: 1fr; gap: 6px; }
+    @media (max-width: 720px) {
+      nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-visual { min-height: 160px; }
+      .hero-text { padding: 48px 24px; }
+      .numbers { grid-template-columns: 1fr; }
+      .number-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.2); }
+      .section { padding: 48px 24px; }
+      .company-grid { grid-template-columns: 1fr; }
       footer { padding: 40px 24px 24px; }
-      .footer-top { flex-direction: column; }
     }
   </style>
 </head>
 <body>
 
-<!-- ナビ -->
-<nav>
-  <a class="nav-logo" href="#"><em>サンライズ</em>商事</a>
-  <ul class="nav-links">
-    <li><a href="#greeting">ごあいさつ</a></li>
-    <li><a href="#business">事業内容</a></li>
-    <li><a href="#news">お知らせ</a></li>
-    <li><a href="#company">会社概要</a></li>
-  </ul>
-  <a class="nav-contact" href="#contact">お問い合わせ</a>
-</nav>
+  <!-- ナビ -->
+  <nav>
+    <div class="nav-logo">株式会社<span>サンライズ</span>商事</div>
+    <ul class="nav-links">
+      <li><a href="#">事業内容</a></li>
+      <li><a href="#">会社概要</a></li>
+      <li><a href="#">お知らせ</a></li>
+      <li><a href="#">お問い合わせ</a></li>
+    </ul>
+  </nav>
 
-<!-- ヒーロー -->
-<div class="hero">
-  <div class="hero-left">
-    <p class="hero-eyebrow">Since 1985</p>
-    <h1>信頼を積み重ね、<br><span class="accent">未来</span>をひらく。</h1>
-    <p class="hero-body">
-      サンライズ商事は創業以来39年、製造・流通・貿易の分野において国内外のパートナーとともに歩み続けてきました。変化の激しい時代にあっても、変わらぬ信頼を礎に事業を展開しています。
-    </p>
-    <div class="hero-btns">
-      <a class="btn btn-primary" href="#business">事業内容を見る</a>
-      <a class="btn btn-ghost" href="#company">会社概要</a>
+  <!-- ヒーロー -->
+  <section class="hero">
+    <div class="hero-text">
+      <p class="hero-en">Sunrise Trading Co., Ltd.</p>
+      <h1>信頼とともに、<br>新しい価値を届ける。</h1>
+      <p class="hero-sub">
+        サンライズ商事は1985年の創業以来、国内外のパートナーとともに、お客様のビジネスに寄り添い続けてきました。
+      </p>
+      <a class="btn btn-gold" href="#">会社概要を見る</a>
+    </div>
+    <div class="hero-visual">🌅</div>
+  </section>
+
+  <!-- 数字 -->
+  <div class="numbers">
+    <div class="number-item">
+      <div class="number-val">39</div>
+      <div class="number-label">創業年数</div>
+    </div>
+    <div class="number-item">
+      <div class="number-val">1,200+</div>
+      <div class="number-label">取引先</div>
+    </div>
+    <div class="number-item">
+      <div class="number-val">15</div>
+      <div class="number-label">国内拠点</div>
     </div>
   </div>
-  <div class="hero-right">
-    <div class="hero-year">1985</div>
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <div class="stat-num">39<span style="font-size:20px">年</span></div>
-        <div class="stat-label">創業年数</div>
+
+  <!-- 事業内容 -->
+  <section class="section section-alt">
+    <div class="section-header">
+      <div>
+        <p class="section-en">Business</p>
+        <h2>事業内容</h2>
       </div>
-      <div class="hero-stat">
-        <div class="stat-num">1,200<span style="font-size:20px">社+</span></div>
-        <div class="stat-label">取引先実績</div>
+      <div class="section-line"></div>
+    </div>
+    <div class="service-grid">
+      <div class="service-card">
+        <div class="service-icon">🏭</div>
+        <h3 class="service-title">製造・流通支援</h3>
+        <p class="service-desc">国内外メーカーとの強固なネットワークを活かし、製品の調達から物流まで一貫してサポートします。</p>
       </div>
-      <div class="hero-stat">
-        <div class="stat-num">15<span style="font-size:20px">拠点</span></div>
-        <div class="stat-label">国内ネットワーク</div>
+      <div class="service-card">
+        <div class="service-icon">🌐</div>
+        <h3 class="service-title">輸出入・貿易</h3>
+        <p class="service-desc">アジアを中心とした海外拠点と連携し、スムーズな貿易実務と通関サポートを提供しています。</p>
       </div>
-      <div class="hero-stat">
-        <div class="stat-num">320<span style="font-size:20px">名</span></div>
-        <div class="stat-label">グループ従業員数</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ごあいさつ -->
-<section id="greeting" class="section-alt">
-  <div class="sec-header">
-    <p class="sec-en">Message</p>
-    <h2>代表取締役からの<br>ごあいさつ</h2>
-  </div>
-  <div class="greeting-grid">
-    <div class="greeting-left">
-      <div class="greeting-portrait">🧑‍💼</div>
-      <div class="greeting-name">山田 太郎</div>
-      <div class="greeting-title">代表取締役社長</div>
-    </div>
-    <div class="greeting-right">
-      <div class="greeting-body">
-        <p>株式会社サンライズ商事のウェブサイトをご覧いただき、誠にありがとうございます。</p>
-        <p>当社は1985年の創業以来、「信頼と誠実」を経営の根幹に据え、製造・流通・貿易の各分野において、お客様のビジネスを支え続けてまいりました。創業から39年が経過した今も、その姿勢は変わりません。</p>
-        <p>近年、グローバル経済の急速な変化やデジタル技術の進展により、ビジネス環境は大きく様変わりしています。私たちはこうした変化を機会ととらえ、従来の強みを活かしながら新たな価値を創造することに挑戦し続けています。</p>
-        <p>国内外1,200社を超えるパートナー企業様との深い信頼関係こそが、私たちの最大の財産です。その信頼を胸に、これからも皆様のビジネスに真摯に向き合い、ともに未来をひらいてまいります。</p>
-        <p>引き続きのご支援、ご愛顧を賜りますよう、心よりお願い申し上げます。</p>
-      </div>
-      <div class="greeting-sig">代表取締役社長　山田 太郎</div>
-    </div>
-  </div>
-</section>
-
-<!-- 事業内容 -->
-<section id="business">
-  <div class="sec-header">
-    <p class="sec-en">Business</p>
-    <h2>事業内容</h2>
-  </div>
-  <div class="biz-grid">
-    <div class="biz-card">
-      <div class="biz-num">01</div>
-      <div class="biz-icon">🏭</div>
-      <h3 class="biz-title">製造・流通支援</h3>
-      <p class="biz-desc">国内外メーカーとの強固なネットワークを活かし、製品の調達・在庫管理・物流まで一貫してサポートします。お客様のサプライチェーン全体を最適化し、コスト削減と品質向上を実現します。</p>
-    </div>
-    <div class="biz-card">
-      <div class="biz-num">02</div>
-      <div class="biz-icon">🌏</div>
-      <h3 class="biz-title">輸出入・貿易</h3>
-      <p class="biz-desc">アジアを中心とした海外拠点と連携し、スムーズな貿易実務と通関サポートを提供しています。複雑な規制や手続きも、豊富な経験を持つ専門チームが対応します。</p>
-    </div>
-    <div class="biz-card">
-      <div class="biz-num">03</div>
-      <div class="biz-icon">💼</div>
-      <h3 class="biz-title">コンサルティング</h3>
-      <p class="biz-desc">市場調査からビジネスマッチング、販路拡大戦略まで、お客様の課題に応じた提案を行います。長年の実績と広いネットワークを活かし、新規事業の立ち上げもご支援します。</p>
-    </div>
-  </div>
-</section>
-
-<!-- お知らせ -->
-<section id="news" class="section-alt">
-  <div class="sec-header">
-    <p class="sec-en">News</p>
-    <h2>お知らせ</h2>
-  </div>
-  <ul class="news-list">
-    <li class="news-item">
-      <span class="news-date">2026.03.15</span>
-      <span class="news-cat red">プレスリリース</span>
-      <span class="news-title">東南アジア向け新物流拠点の開設について</span>
-    </li>
-    <li class="news-item">
-      <span class="news-date">2026.02.28</span>
-      <span class="news-cat">お知らせ</span>
-      <span class="news-title">2025年度決算説明会の開催日程のご案内</span>
-    </li>
-    <li class="news-item">
-      <span class="news-date">2026.01.10</span>
-      <span class="news-cat">採用情報</span>
-      <span class="news-title">2027年度新卒採用エントリー受付を開始しました</span>
-    </li>
-    <li class="news-item">
-      <span class="news-date">2025.12.20</span>
-      <span class="news-cat">お知らせ</span>
-      <span class="news-title">年末年始休業期間のご案内（12月29日〜1月5日）</span>
-    </li>
-    <li class="news-item">
-      <span class="news-date">2025.11.01</span>
-      <span class="news-cat red">プレスリリース</span>
-      <span class="news-title">創業39周年を迎えました。日頃のご支援に感謝申し上げます</span>
-    </li>
-  </ul>
-</section>
-
-<!-- 会社概要 -->
-<section id="company">
-  <div class="sec-header">
-    <p class="sec-en">Company</p>
-    <h2>会社概要</h2>
-  </div>
-  <div class="company-grid">
-    <table class="info-table">
-      <tr><th>会社名</th><td>株式会社サンライズ商事</td></tr>
-      <tr><th>英文社名</th><td>Sunrise Trading Co., Ltd.</td></tr>
-      <tr><th>設立</th><td>1985年（昭和60年）4月1日</td></tr>
-      <tr><th>代表取締役</th><td>山田 太郎</td></tr>
-      <tr><th>資本金</th><td>5,000万円</td></tr>
-      <tr><th>従業員数</th><td>320名（グループ計）</td></tr>
-      <tr><th>所在地</th><td>〒100-0001<br>東京都千代田区○○1-2-3<br>サンライズビル8F</td></tr>
-      <tr><th>TEL / FAX</th><td>03-XXXX-XXXX　／　03-XXXX-XXXX</td></tr>
-      <tr><th>主要取引先</th><td>国内外1,200社以上</td></tr>
-      <tr><th>事業内容</th><td>製造・流通支援、輸出入・貿易、コンサルティング</td></tr>
-    </table>
-    <div class="map-box">
-      <div style="font-size:40px;">📍</div>
-      <div>東京都千代田区○○1-2-3</div>
-      <div style="font-size:11px;color:#bbb;">サンライズビル8F</div>
-    </div>
-  </div>
-</section>
-
-<!-- お問い合わせ -->
-<section id="contact" class="section-alt">
-  <div class="contact-inner">
-    <p class="sec-en" style="justify-content:center;">Contact</p>
-    <h2>お問い合わせ</h2>
-    <p style="margin-top:16px;">ご相談・ご質問はお気軽にお問い合わせください。<br>担当者より折り返しご連絡いたします。</p>
-    <div class="contact-tel">03-XXXX-XXXX</div>
-    <div class="contact-hours">受付時間：平日 9:00〜18:00（土日祝除く）</div>
-    <div class="contact-divider">または</div>
-    <a class="btn btn-primary" href="#" style="font-size:13px;padding:16px 48px;letter-spacing:0.15em;">メールフォームで送る</a>
-  </div>
-</section>
-
-<!-- フッター -->
-<footer>
-  <div class="footer-top">
-    <div>
-      <div class="footer-logo">株式会社<em>サンライズ</em>商事</div>
-      <div class="footer-addr">
-        〒100-0001 東京都千代田区○○1-2-3 サンライズビル8F<br>
-        TEL：03-XXXX-XXXX　FAX：03-XXXX-XXXX
+      <div class="service-card">
+        <div class="service-icon">💡</div>
+        <h3 class="service-title">コンサルティング</h3>
+        <p class="service-desc">市場調査からビジネスマッチング、販路拡大戦略まで、お客様の課題に応じた提案を行います。</p>
       </div>
     </div>
-    <nav class="footer-nav">
-      <a href="#greeting">ごあいさつ</a>
-      <a href="#business">事業内容</a>
-      <a href="#news">お知らせ</a>
-      <a href="#company">会社概要</a>
-      <a href="#contact">お問い合わせ</a>
-    </nav>
-  </div>
-  <div class="footer-bottom">
-    <span>&copy; 2026 Sunrise Trading Co., Ltd. All rights reserved.</span>
-    <span class="footer-note">このサイトはデモ用です — index.html 1ファイル構成</span>
-  </div>
-</footer>
+  </section>
+
+  <!-- お知らせ -->
+  <section class="section">
+    <div class="section-header">
+      <div>
+        <p class="section-en">News</p>
+        <h2>お知らせ</h2>
+      </div>
+      <div class="section-line"></div>
+    </div>
+    <ul class="news-list">
+      <li class="news-item">
+        <span class="news-date">2026.03.15</span>
+        <span class="news-tag">プレスリリース</span>
+        <span class="news-title">東南アジア向け新物流拠点の開設について</span>
+      </li>
+      <li class="news-item">
+        <span class="news-date">2026.02.28</span>
+        <span class="news-tag">お知らせ</span>
+        <span class="news-title">2025年度決算説明会の開催日程のご案内</span>
+      </li>
+      <li class="news-item">
+        <span class="news-date">2026.01.10</span>
+        <span class="news-tag">採用情報</span>
+        <span class="news-title">2027年度新卒採用エントリー受付を開始しました</span>
+      </li>
+      <li class="news-item">
+        <span class="news-date">2025.12.20</span>
+        <span class="news-tag">お知らせ</span>
+        <span class="news-title">年末年始休業期間のご案内（12/29〜1/5）</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- 会社概要 -->
+  <section class="section section-alt">
+    <div class="section-header">
+      <div>
+        <p class="section-en">Company</p>
+        <h2>会社概要</h2>
+      </div>
+      <div class="section-line"></div>
+    </div>
+    <div class="company-grid">
+      <table class="info-table">
+        <tr><th>会社名</th><td>株式会社サンライズ商事</td></tr>
+        <tr><th>設立</th><td>1985年（昭和60年）4月</td></tr>
+        <tr><th>代表取締役</th><td>山田 太郎</td></tr>
+        <tr><th>所在地</th><td>〒100-0001<br>東京都千代田区○○1-2-3<br>サンライズビル8F</td></tr>
+        <tr><th>TEL</th><td>03-XXXX-XXXX</td></tr>
+        <tr><th>資本金</th><td>5,000万円</td></tr>
+        <tr><th>従業員数</th><td>320名（グループ計）</td></tr>
+      </table>
+      <div class="map-placeholder">
+        <div style="font-size:32px;">📍</div>
+        <div>地図エリア</div>
+        <div style="font-size:11px;">東京都千代田区○○1-2-3</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- フッター -->
+  <footer>
+    <div class="footer-logo">株式会社<span>サンライズ</span>商事</div>
+    <div class="footer-addr">
+      〒100-0001 東京都千代田区○○1-2-3 サンライズビル8F<br>
+      TEL: 03-XXXX-XXXX　／　FAX: 03-XXXX-XXXX
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Sunrise Trading Co., Ltd. All rights reserved.
+      &ensp;|&ensp; このサイトはデモ用です
+    </div>
+  </footer>
 
 </body>
 </html>
